@@ -1,0 +1,11 @@
+Observable Collection: Represents a dynamic data collection that provides notifications when items get added, removed, or when the whole list is refreshed.
+
+Difference between commands and binding.
+
+Commands: Commands are a way to handle user interface (UI) actions. They are a loosely coupled way to bind the UI to the logic that performs the action. 
+
+Binding: Data binding provides a way for developers to create a read/write link between the controls on a form and the data in their application.
+
+Generics: Generics in C# allow for the reuse of code. Parameters that are generic do not care about type. 
+So any object type can be passed into a method that has a generic parameter.
+
