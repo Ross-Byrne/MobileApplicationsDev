@@ -40,6 +40,15 @@
             <TextBox 
               Text="{x:Bind Organization.SelectedPerson.Age, Mode=TwoWay, FallbackValue='0'}" 
               Margin="5" />
+            <TextBox 
+              Text="{x:Bind Organization.SelectedPerson.Address, Mode=TwoWay, FallbackValue='0'}" 
+              Margin="5" />
+            <TextBox 
+              Text="{x:Bind Organization.SelectedPerson.PhoneNumber, Mode=TwoWay, FallbackValue='0'}" 
+              Margin="5" />
+            <TextBox 
+              Text="{x:Bind Organization.SelectedPerson.Email, Mode=TwoWay, FallbackValue='0'}" 
+              Margin="5" />
             <Button Content="Delete" Click="{x:Bind Organization.Delete}" Margin="5" />
         </StackPanel>
     </Grid>
