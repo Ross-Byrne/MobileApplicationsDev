@@ -1,0 +1,71 @@
+﻿[{"breed" : "Japanese Shiba Inu", "category" : "Utility","activity" : "Reasonable Exercise", "grooming" : "Reasonable", "image" : "/Images/shiba.jpg"},
+{
+    "breed" : "Japanese Spitz", 
+	"category" : "Utility", 
+	"activity" : "Medium Exercise", 
+	"grooming" : "Demanding", 
+	"image" : "/Images/spitz.jpg"},
+
+{	"breed" : "Japanese Akita",
+	"category" : "Utility",
+	"activity" : "High Exercise",
+	"grooming" : "Moderate",
+	"image" : "/Images/akita.jpg"},
+
+{	"breed" : "West Highland Terrier", 
+	"category" : "Terrier", 
+	"activity" : "Undemanding Exercise", 
+	"grooming" : "Moderate", 
+	"image" : "/Images/westie.jpg" },
+
+{	"breed" : "Cairn Terrier", 
+	"category" : "Terrier", 
+	"activity" : "Reasonable Exercise", 
+	"grooming" : "Medium", 
+	"image" : "/Images/cairn.jpg" },
+
+{	"breed" : "Staffordshire Bull Terrier", 
+	"category" : "Terrier", 
+	"activity" : "Medium Exercise", 
+	"grooming" : "Easy", 
+	"image" : "/Images/staffy.jpg" },
+
+{	"breed" : "Norwegian Elkhound", 
+	"category" : "Hound", 
+	"activity" : "Moderate Exercise", 
+	"grooming" : "Reasonably easy", 
+	"image" : "/Images/elkhound.jpg" },
+
+{	"breed" : "Irish Wolfhound", 
+	"category" : "Hound", 
+	"activity" : "Regular Exercise", 
+	"grooming" : "Regular", 
+	"image" : "/Images/irishwolf.jpg" },
+
+{	"breed" : "Otterhound", 
+	"category" : "Hound", 
+	"activity" : "Essential", 
+	"grooming" : "Fairly Demanding", 
+	"image" : "/Images/otter.jpg" },
+
+{	"breed" : "Siberian Husky", 
+	"category" : "Working", 
+	"activity" : "Very Demanding", 
+	"grooming" : "Medium", 
+	"image" : "/Images/husky.jpg" },
+
+{	"breed" : "Newfoundland", 
+	"category" : "Working", 
+	"activity" : "Aquatically Demanding", 
+	"grooming" : "Fairly Demanding", 
+	"image" : "/Images/newfie.jpg" },
+
+{	"breed" : "Welsh Corgi", 
+	"category" : "Working", 
+	"activity" : "Medium", 
+	"grooming" : "Medium", 
+	"image" : "/Images/corgi.jpg" }
+]
+
+
+
