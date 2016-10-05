@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LabTwo.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,14 @@ namespace LabTwo
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        public BreedsViewModel Breeds { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
+
+
+            Breeds = new BreedsViewModel("Name");
         }
     }
 }

@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace LabTwo.ViewModels
 {
-    class BreedsViewModel : NotificationBase
+    public class BreedsViewModel : NotificationBase
     {
         Breeds breeds;
 
         public BreedsViewModel(String name)
         {
-            breeds = new Breeds(name);
+            breeds = new Breeds();
             _SelectedIndex = -1;
             // Load the database
             foreach (var dog in breeds.Dogs)

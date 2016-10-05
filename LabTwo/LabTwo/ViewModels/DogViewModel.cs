@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LabTwo.ViewModels
 {
-    class DogViewModel : NotificationBase<Dog>
+    public class DogViewModel : NotificationBase<Dog>
     {
         public DogViewModel(Dog dog = null) : base(dog) { }
 

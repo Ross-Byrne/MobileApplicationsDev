@@ -31,7 +31,7 @@ namespace LabTwo.Data
             gDogList = null;
             await LoadLocalData();
 
-            return new List<Dog>(gDogList);
+            return gDogList;
         }
 
         public static void Write(Dog dog)
