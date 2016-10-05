@@ -30,7 +30,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Content="Add" Click="{x:Bind  Breeds.Add}" Margin="5"/>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Orientation="Vertical" Visibility="{x:Bind Breeds.SelectedDogs, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
@@ -55,11 +54,10 @@
               Margin="0, 5, 0, 5" />
 
             <TextBlock Text="Image" HorizontalAlignment="Left"/>
-            <TextBox 
-              Text="{x:Bind Breeds.SelectedDogs.Image, Mode=OneWay, FallbackValue='0'}" 
+            <Image 
+              Source="{x:Bind Breeds.SelectedDogs.Image, Mode=OneWay, FallbackValue='0'}" 
               Margin="0, 5, 0, 5" />
 
-            <Button Content="Delete" Click="{x:Bind Breeds.Delete}" Margin="0, 5, 0, 5" />
         </StackPanel>
     </Grid>
 </Page>
