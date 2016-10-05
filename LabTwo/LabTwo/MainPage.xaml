@@ -6,10 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:viewModels="using:LabTwo.ViewModels">
+    xmlns:viewModels="using:LabTwo.ViewModels"
+    xmlns:converters="using:LabTwo.Converters">
 
     <Page.Resources>
-        <!--   <converters:ObjectExistsToVisible x:Key="ObjectExistsToVisible" />-->
+        <converters:ObjectExistsToVisible x:Key="ObjectExistsToVisible" />
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -23,42 +24,42 @@
               ItemsSource="{x:Bind Breeds.Dogs, Mode=OneWay}"  
               SelectedIndex="{x:Bind Breeds.SelectedIndex, Mode=TwoWay}" 
               MinWidth="250" Margin="5">
-                <!--<ListView.ItemTemplate>
+                <ListView.ItemTemplate>
                     <DataTemplate x:DataType="viewModels:DogViewModel" >
                         <TextBlock Text="{x:Bind Breed, Mode=OneWay}" />
                     </DataTemplate>
-                </ListView.ItemTemplate>-->
+                </ListView.ItemTemplate>
             </ListView>
             <Button Content="Add" Click="{x:Bind  Breeds.Add}" Margin="5"/>
         </StackPanel>
 
-        <!--<StackPanel Grid.Column="2" Orientation="Vertical" Visibility="{x:Bind BreedsViewModel.SelectedDog, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}" >
-            <TextBlock Text="Name" HorizontalAlignment="Left" />
+        <StackPanel Grid.Column="2" Orientation="Vertical" Visibility="{x:Bind Breeds.SelectedDogs, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
+            <TextBlock Text="Breed" HorizontalAlignment="Left" />
             <TextBox 
-              Text="{x:Bind BreedsViewModel.SelectedDog.Breed, Mode=TwoWay, FallbackValue=''}" 
-              Margin="0, 5, 0, 5" />
---><!--
-            <TextBlock Text="Age" HorizontalAlignment="Left"/>
-            <TextBox 
-              Text="{x:Bind Organization.SelectedPerson.Age, Mode=TwoWay, FallbackValue='0'}" 
+              Text="{x:Bind Breeds.SelectedDogs.Breed, Mode=TwoWay, FallbackValue=''}" 
               Margin="0, 5, 0, 5" />
 
-            <TextBlock Text="Address" HorizontalAlignment="Left"/>
+            <TextBlock Text="Category" HorizontalAlignment="Left"/>
             <TextBox 
-              Text="{x:Bind Organization.SelectedPerson.Address, Mode=TwoWay, FallbackValue='0'}" 
+              Text="{x:Bind Breeds.SelectedDogs.Category, Mode=TwoWay, FallbackValue='0'}" 
               Margin="0, 5, 0, 5" />
 
-            <TextBlock Text="Phone Number" HorizontalAlignment="Left"/>
+            <TextBlock Text="Activity" HorizontalAlignment="Left"/>
             <TextBox 
-              Text="{x:Bind Organization.SelectedPerson.PhoneNumber, Mode=TwoWay, FallbackValue='0'}" 
+              Text="{x:Bind Breeds.SelectedDogs.Activity, Mode=TwoWay, FallbackValue='0'}" 
               Margin="0, 5, 0, 5" />
 
-            <TextBlock Text="Email" HorizontalAlignment="Left"/>
+            <TextBlock Text="Grooming" HorizontalAlignment="Left"/>
             <TextBox 
-              Text="{x:Bind Organization.SelectedPerson.Email, Mode=TwoWay, FallbackValue='0'}" 
+              Text="{x:Bind Breeds.SelectedDogs.Grooming, Mode=TwoWay, FallbackValue='0'}" 
               Margin="0, 5, 0, 5" />
---><!--
-            <Button Content="Delete" Click="{x:Bind Organization.Delete}" Margin="0, 5, 0, 5" />
-        </StackPanel>-->
+
+            <TextBlock Text="Image" HorizontalAlignment="Left"/>
+            <TextBox 
+              Text="{x:Bind Breeds.SelectedDogs.Image, Mode=OneWay, FallbackValue='0'}" 
+              Margin="0, 5, 0, 5" />
+
+            <Button Content="Delete" Click="{x:Bind Breeds.Delete}" Margin="0, 5, 0, 5" />
+        </StackPanel>
     </Grid>
 </Page>

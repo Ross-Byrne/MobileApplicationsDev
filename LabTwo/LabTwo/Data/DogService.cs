@@ -19,20 +19,20 @@ namespace LabTwo.Data
         public string image { get; set; }
     }
 
-    class DogService
+    public class DogService
     {
         public static String Name = "Dog Data Service.";
 
-        private static List<Dog> gDogList = new List<Dog>();
-        public static async Task<List<Dog>> GetDogs()
-        {
-            Debug.WriteLine("GET for dogs.");
+        //public static List<Dog> gDogList = new List<Dog>();
+        //public static async Task<List<Dog>> GetDogs()
+        //{
+        //    Debug.WriteLine("GET for dogs.");
 
-            gDogList = null;
-            await LoadLocalData();
+        //    gDogList = null;
+        //    await LoadLocalData();
 
-            return gDogList;
-        }
+        //    return gDogList;
+        //}
 
         public static void Write(Dog dog)
         {
@@ -44,49 +44,49 @@ namespace LabTwo.Data
             Debug.WriteLine("DELETE dog with breed " + dog.breed);
         }
 
-        public static async Task LoadLocalData()
-        {
-            var file = await Package.Current.InstalledLocation.GetFileAsync("Data\\myDogs.txt");
-            var result = await FileIO.ReadTextAsync(file);
+        //public static async Task LoadLocalData()
+        //{
+        //    var file = await Package.Current.InstalledLocation.GetFileAsync("Data\\myDogs.txt");
+        //    var result = await FileIO.ReadTextAsync(file);
 
-            var jDogList = JsonArray.Parse(result);
-            CreateDogsList(jDogList);
-        }
+        //    var jDogList = JsonArray.Parse(result);
+        //    CreateDogsList(jDogList);
+        //}
 
-        private static void CreateDogsList(JsonArray jDogList)
-        {
-            foreach (var item in jDogList)
-            {
-                var oneDog = item.GetObject();
-                Dog nDog = new Dog();
+        //private static void CreateDogsList(JsonArray jDogList)
+        //{
+        //    foreach (var item in jDogList)
+        //    {
+        //        var oneDog = item.GetObject();
+        //        Dog nDog = new Dog();
 
-                foreach (var key in oneDog.Keys)
-                {
-                    IJsonValue value;
-                    if (!oneDog.TryGetValue(key, out value))
-                        continue;
+        //        foreach (var key in oneDog.Keys)
+        //        {
+        //            IJsonValue value;
+        //            if (!oneDog.TryGetValue(key, out value))
+        //                continue;
 
-                    switch (key)
-                    {
-                        case "breed":
-                            nDog.breed = value.GetString();
-                            break;
-                        case "category":
-                            nDog.category = value.GetString();
-                            break;
-                        case "grooming":
-                            nDog.grooming = value.GetString();
-                            break;
-                        case "activity":
-                            nDog.activity = value.GetString();
-                            break;
-                        case "image":
-                            nDog.image = value.GetString();
-                            break;
-                    } // end switch
-                } // end foreach(var key in oneDog.Keys )
-                gDogList.Add(nDog);
-            } // end foreach (var item in jDogList)
-        }
+        //            switch (key)
+        //            {
+        //                case "breed":
+        //                    nDog.breed = value.GetString();
+        //                    break;
+        //                case "category":
+        //                    nDog.category = value.GetString();
+        //                    break;
+        //                case "grooming":
+        //                    nDog.grooming = value.GetString();
+        //                    break;
+        //                case "activity":
+        //                    nDog.activity = value.GetString();
+        //                    break;
+        //                case "image":
+        //                    nDog.image = value.GetString();
+        //                    break;
+        //            } // end switch
+        //        } // end foreach(var key in oneDog.Keys )
+        //        gDogList.Add(nDog);
+        //    } // end foreach (var item in jDogList)
+        //}
     }
 }
