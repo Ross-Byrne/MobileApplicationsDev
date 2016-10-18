@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab3.UWP;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.EntityFrameworkCore;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,6 +27,26 @@ namespace Lab3
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new BloggingContext())
+            {
+                Blogs.ItemsSource = db.Blogs.ToList();
+            }
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new BloggingContext())
+            {
+                var blog = new Blog { Url = NewBlogUrl.Text };
+                db.Blogs.Add(blog);
+                db.SaveChanges();
+
+                Blogs.ItemsSource = db.Blogs.ToList();
+            }
         }
     }
 }
