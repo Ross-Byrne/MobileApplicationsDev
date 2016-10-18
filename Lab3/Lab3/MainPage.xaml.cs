@@ -48,5 +48,21 @@ namespace Lab3
                 Blogs.ItemsSource = db.Blogs.ToList();
             }
         }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new BloggingContext())
+            {
+               /**/ var blog = new Blog { Url = NewBlogUrl.Text };
+                db.Blogs.Add(blog);
+                db.SaveChanges();
+
+               // var blogs = db.Blogs.Where(b => b.Url.Equals())
+
+               
+
+               /* Blogs.ItemsSource = db.Blogs.ToList();*/
+            }
+        }
     }
 }
