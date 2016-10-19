@@ -41,11 +41,18 @@ namespace Lab3
         {
             using (var db = new BloggingContext())
             {
-                var blog = new Blog { Url = NewBlogUrl.Text };
-                db.Blogs.Add(blog);
-                db.SaveChanges();
+                if (NewBlogUrl.Text != "")
+                {
+                    var blog = new Blog { Url = NewBlogUrl.Text };
+                    db.Blogs.Add(blog);
+                    db.SaveChanges();
+
+                }
 
                 Blogs.ItemsSource = db.Blogs.ToList();
+
+                // clear add textbox
+                NewBlogUrl.Text = "";
             }
         }
 
@@ -55,13 +62,49 @@ namespace Lab3
             {
                 var blog = new Blog { Url = NewBlogUrl.Text };
 
-                if (Blogs.SelectedItem != null)
+                if (Blogs.SelectedItem != null || SearchResults.SelectedItem != null)
                 {
-                    db.Blogs.Remove(Blogs.SelectedItem as Blog);
-                    db.SaveChanges();
+                    if (Blogs.SelectedItem != null)
+                    {
+                        db.Blogs.Remove(Blogs.SelectedItem as Blog);
+                        db.SaveChanges();
+                    } else
+                    {
+                        db.Blogs.Remove(SearchResults.SelectedItem as Blog);
+                        db.SaveChanges();
+
+                    }
+
+                    // reload the items
+                    Blogs.ItemsSource = db.Blogs.ToList();
+
+                    // reload the search results
+                    var blogs = db.Blogs.Where(b => b.Url.ToLower().Contains(SearchBox.Text.ToString().ToLower()));
+                    SearchResults.ItemsSource = blogs.ToList();
+
+                }
+  
+            }
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            using (var db = new BloggingContext())
+            {
+                var blogs = db.Blogs.Where(b => b.Url.ToLower().Contains(SearchBox.Text.ToString().ToLower()));
+
+                SearchResults.ItemsSource = blogs.ToList();
+
+                if(SearchResults.Items.Count < 1)
+                {
+                    SearchResultStackPanel.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    SearchResultStackPanel.Visibility = Visibility.Visible;
                 }
 
-                Blogs.ItemsSource = db.Blogs.ToList();
+
             }
         }
     }

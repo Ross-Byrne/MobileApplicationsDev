@@ -9,17 +9,40 @@
     Loaded="Page_Loaded">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBox Name="NewBlogUrl"></TextBox>
-            <Button Click="Add_Click">Add</Button>
-            <Button Click="Delete_Click">Delete</Button>
-            <ListView Name="Blogs">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Url}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        
+        <StackPanel Margin="20">
+            <TextBlock>Item URL</TextBlock>
+            <TextBox Name="NewBlogUrl" Width="400" HorizontalAlignment="Left" PlaceholderText="Enter New Item URL..."></TextBox>
+
+            <StackPanel Orientation="Horizontal" Margin="0 20">
+                <Button Width="100" Click="Add_Click" Margin="0 0 10 0">Add</Button>
+                <Button Width="140" Click="Delete_Click">Delete Selected</Button>
+            </StackPanel>
+
+            <TextBlock>Search</TextBlock>
+            <TextBox Margin="0 20" HorizontalAlignment="Left" Name="SearchBox" TextChanged="SearchBox_TextChanged" Width="400" PlaceholderText="Search..."></TextBox>
+            
+            <StackPanel Margin="0 10"  Name="SearchResultStackPanel" Visibility="Collapsed">
+                <TextBlock>Search Results:</TextBlock>
+                <ListView Name="SearchResults">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Url}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+
+            <StackPanel Margin="0 20">
+                <TextBlock>Items:</TextBlock>
+                <ListView Name="Blogs">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Url}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
