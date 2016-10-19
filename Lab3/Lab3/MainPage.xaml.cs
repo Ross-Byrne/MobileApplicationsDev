@@ -53,15 +53,15 @@ namespace Lab3
         {
             using (var db = new BloggingContext())
             {
-               /**/ var blog = new Blog { Url = NewBlogUrl.Text };
-                db.Blogs.Add(blog);
-                db.SaveChanges();
+                var blog = new Blog { Url = NewBlogUrl.Text };
 
-               // var blogs = db.Blogs.Where(b => b.Url.Equals())
+                if (Blogs.SelectedItem != null)
+                {
+                    db.Blogs.Remove(Blogs.SelectedItem as Blog);
+                    db.SaveChanges();
+                }
 
-               
-
-               /* Blogs.ItemsSource = db.Blogs.ToList();*/
+                Blogs.ItemsSource = db.Blogs.ToList();
             }
         }
     }
