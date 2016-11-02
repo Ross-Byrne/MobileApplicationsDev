@@ -5,14 +5,14 @@
  *
  * For more information, see: http://go.microsoft.com/fwlink/?LinkId=717898
  */
-//#define OFFLINE_SYNC_ENABLED
+#define OFFLINE_SYNC_ENABLED
 
 using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls; 
 using Windows.UI.Xaml.Navigation;
 using System.Linq;
 using Windows.Security.Credentials;
@@ -30,8 +30,12 @@ namespace AppDevLab4
         private MobileServiceUser user;
 
         private MobileServiceCollection<TodoItem, TodoItem> items;
+
+
 #if OFFLINE_SYNC_ENABLED
+
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
+    
 #else
         private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
 #endif
@@ -43,10 +47,16 @@ namespace AppDevLab4
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            try
+            {
 #if OFFLINE_SYNC_ENABLED
-            await InitLocalStoreAsync(); // offline sync
+                await InitLocalStoreAsync(); // offline sync
 #endif
-            ButtonRefresh_Click(this, null);
+            }
+            catch
+            {
+
+            }
         }
 
         private async Task InsertTodoItem(TodoItem todoItem)
@@ -76,7 +86,7 @@ namespace AppDevLab4
             try
             {
                 // Try to get an existing credential from the vault.
-                credential = null;//vault.FindAllByResource(provider.ToString()).FirstOrDefault();
+                credential = vault.FindAllByResource(provider.ToString()).LastOrDefault();
             }
             catch (Exception)
             {
