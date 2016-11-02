@@ -76,7 +76,7 @@ namespace AppDevLab4
             try
             {
                 // Try to get an existing credential from the vault.
-                credential = vault.FindAllByResource(provider.ToString()).FirstOrDefault();
+                credential = null;//vault.FindAllByResource(provider.ToString()).FirstOrDefault();
             }
             catch (Exception)
             {
